@@ -31,7 +31,7 @@
                 <div class="font-sample-card type-mincho">
                     <div class="font-tag tag-mincho">明朝体（Serif）</div>
                     <p class="font-preview">聖サレジオ学園文化祭</p>
-                    <p class="font-desc"><strong>特徴：</strong> 横線が細く，縦線が太い．端に「ウロコ」と呼ばれる飾りがある．<br><strong>印象：</strong> 上品，伝統的，格式高い，文学的．<br><strong>用途：</strong> 教科書や小説など，紙に印刷された長文を読むのに適しています．画面上では線が細くなりやすく，視認性が落ちることがあります．</p>
+                    <p class="font-desc"><strong>特徴：</strong> 横線が細く，縦線が太い．端に「ウロコ」と呼ばれる飾りがある．<br><strong>印象：</strong> 上品，伝統的，格式高い，文学的．<br><strong>用途：</strong> 印刷された長文を読むのに適しています．画面上では線が細くなりやすく，視認性が落ちることがあります．</p>
                 </div>
                 <!-- 丸ゴシック体 -->
                 <div class="font-sample-card type-round">
@@ -43,7 +43,7 @@
                 <div class="font-sample-card type-pop">
                     <div class="font-tag tag-pop">ポップ体・装飾体</div>
                     <p class="font-preview">聖サレジオ学園文化祭</p>
-                    <p class="font-desc"><strong>特徴：</strong> 個性的でインパクトのあるデザイン書体．<br><strong>印象：</strong> 賑やか，個性的，カジュアル，装飾的．<br><strong>用途：</strong> タイトルの一部など，一部で目立たせるには有効ですが，長文に使うと著しく可読性が下がります．</p>
+                    <p class="font-desc"><strong>特徴：</strong> 個性的でインパクトのあるデザイン書体．<br><strong>印象：</strong> 賑やか，個性的，カジュアル，装飾的．<br><strong>用途：</strong> タイトルの一部などで目立たせるには有効ですが，長文に使うと著しく可読性が下がります．</p>
                 </div>
             </div>
 
@@ -77,7 +77,7 @@
                     <div class="explanation">
                         <span class="label">ここがCSSの工夫！</span>
                         <ul>
-                            <li><strong>視線の流れ：</strong> 最も重要なタイトルを大きく太く（`font-size: 20px` / `bold`），サブ見出しを中間（`15px` / `bold`），本文を標準（`13px` / `normal`）と整理することで，情報の優先順位が直感的にわかります．</li>
+                            <li><strong>視線の流れ：</strong> 最も重要なタイトルを大きく太く（<code>font-size: 20px</code> / <code>bold</code>），サブ見出しを中間（<code>15px</code> / <code>bold</code>），本文を標準（<code>13px</code> / <code>normal</code>）と整理することで，情報の優先順位が直感的にわかります．</li>
                         </ul>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
 
         <!-- セクション 2：配色ルールとコントラスト -->
         <section class="demo-section">
-            <h2 class="section-title">原則 2：配色ルールとコントラスト（色の三属性とハレーション・補色）</h2>
+            <h2 class="section-title">原則 2：配色ルールとコントラスト（色の三属性と色相環・ハレーション・補色）</h2>
             <p class="section-desc">色相（色合い），彩度（鮮やかさ），明度（明るさ）をコントロールし，4色以内に整理します．</p>
 
             <h3>2-1. 色の三属性のビジュアル図解</h3>
@@ -108,31 +108,48 @@
                 </div>
             </div>
 
-            <h3>2-2. 補色と類似色の効果</h3>
+            <h3>2-2. 色相環（しきそうかん）とは</h3>
+            <p>色相環とは，色相（赤・黄・緑・青・紫などの色み）を波長順に並べて円環状（リング状）にしたものです．配色を設計する上で重要な基準となります．</p>
+            
+            <div class="color-wheel-wrapper">
+                <div class="color-wheel-box">
+                    <div class="color-wheel"></div>
+                    <div class="wheel-pointer pointer-a"></div>
+                    <div class="wheel-pointer pointer-b"></div>
+                </div>
+                <div class="color-wheel-explanation">
+                    <ul>
+                        <li><strong>補色（ほしょく）：</strong> 色相環において，正反対（向かい合う位置）にある色のペアです（例：緑と赤，青とオレンジ）．</li>
+                        <li><strong>類似色（るいじしょく）：</strong> 色相環において，隣り合う位置にある色合いの近い色です（例：青と水色，赤とオレンジ）．</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>2-3. 補色と類似色の効果</h3>
             <div class="grid color-harmony-grid">
                 <!-- 補色 -->
                 <div class="harmony-card card-complementary">
-                    <h4>補色（Complementary Color）</h4>
-                    <p class="harmony-desc">色相環で向かい合う位置にある色の組み合わせ（例：緑と赤，青とオレンジ）．</p>
+                    <h4>補色（Complementary Color）の組み合わせ</h4>
+                    <p class="harmony-desc">色相環で向かい合う位置にある対照的な配色（例：緑と赤）．</p>
                     <div class="harmony-demo demo-comp">
                         <div class="comp-box-1">赤地に緑文字</div>
                         <div class="comp-box-2">青地にオレンジ文字</div>
                     </div>
-                    <p class="harmony-effect"><strong>効果と注意：</strong> 互いの色を引き立てる強い対比効果がありますが，**明度（明るさ）の差をつけずに高彩度の補色同士を重ねると，文字の境界がチカチカする「ハレーション」を引き起こし，非常に読みづらくなります**．</p>
+                    <p class="harmony-effect"><strong>効果と注意：</strong> 互いの色を引き立てる強い対比効果がありますが，明度（明るさ）の差をつけずに高彩度の補色同士を重ねると，文字の境界がチカチカする<strong>ハレーション</strong>を引き起こし，非常に読みづらくなります．</p>
                 </div>
                 <!-- 類似色 -->
                 <div class="harmony-card card-analogous">
-                    <h4>類似色（Analogous Color）</h4>
-                    <p class="harmony-desc">色相環で隣り合う位置にある，性質の似た色の組み合わせ（例：青と水色，緑と黄緑）．</p>
+                    <h4>類似色 (Analogous Color) の組み合わせ</h4>
+                    <p class="harmony-desc">色相環で隣り合う位置にある性質の近い配色（例：青と水色）．</p>
                     <div class="harmony-demo demo-anal">
                         <div class="anal-box-1">青地に水色文字</div>
                         <div class="anal-box-2">黄緑地に緑文字</div>
                     </div>
-                    <p class="harmony-effect"><strong>効果と注意：</strong> 全体に調和がとれ，まとまりや安心感のある落ち着いた印象を与えます．ただし，コントラストが低くなりやすいため，明度差をつけて文字をくっきり見せる工夫が必要です．</p>
+                    <p class="harmony-effect"><strong>効果と注意：</strong> 全体に調和がとれ，まとまりや安心感のある落ち着いた印象を与えます．ただし，全体がボヤけやすいため，明度差をつけて文字をくっきり見せる工夫が必要です．</p>
                 </div>
             </div>
 
-            <h3>2-3. 配色デモ：ハレーションの解消とコントラスト</h3>
+            <h3>2-4. 配色デモ：ハレーションの解消とコントラスト</h3>
             <div class="grid">
                 <!-- 悪い例：ハレーション -->
                 <div class="card bad-example">
@@ -143,7 +160,7 @@
                     <div class="explanation">
                         <span class="label">なぜ見づらい？</span>
                         <ul>
-                            <li><strong>明度差ゼロの高彩度補色：** 背景の緑と文字の赤は，彩度（鮮やかさ）が極端に高く，かつ「明度（明るさ）」がほぼ同じであるため，脳の視覚処理が混乱し，文字の境界がギラギラとぶれて見えます．</li>
+                            <li><strong>明度差のない高彩度補色：</strong> 背景の緑と文字の赤は，彩度（鮮やかさ）が極端に高く，かつ「明度（明るさ）」がほぼ同じであるため，脳の視覚処理が混乱し，文字の境界がギラギラとぶれて見えます．</li>
                         </ul>
                     </div>
                 </div>
@@ -157,7 +174,7 @@
                     <div class="explanation">
                         <span class="label">ここがCSSの工夫！</span>
                         <ul>
-                            <li><strong>大きな明度差（コントラスト）：</strong> 暗い紺色の背景に白い文字，または白い背景に暗いグレーの文字のように，**「明度の差」を極大化**することで，ハレーションを完全に防止して視認性を高めています．</li>
+                            <li><strong>大きな明度差（コントラスト）：</strong> 暗い紺色の背景に白い文字，または白い背景に暗いグレーの文字のように，<strong>明度の差</strong>を極大化することで，ハレーションを完全に防止して視認性を高めています．</li>
                         </ul>
                     </div>
                 </div>
@@ -170,7 +187,7 @@
             
             <div class="cud-info-box">
                 <h4>⚠️ カラーユニバーサルデザイン（CUD）とは？</h4>
-                <p>人間の色覚（色の見え方）には多様性があります．一部の色（特に赤と緑など）の区別が難しい人や，高齢で色の判別がしにくくなっている人など，**すべての人が色による違いを正確に認識し，誤解なく情報を取得できるように配慮して設計されたデザイン**を「カラーユニバーサルデザイン（CUD）」と呼びます．</p>
+                <p>人間の色覚（色の見え方）には多様性があります．一部の色（特に赤と緑など）の区別が難しい人や，高齢で色の判別がしにくくなっている人など，<strong>すべての人が色による違いを正確に認識し，誤解なく情報を取得できるように配慮して設計されたデザイン</strong>を「カラーユニバーサルデザイン（CUD）」と呼びます．</p>
             </div>
 
             <div class="simulator-panel">
@@ -189,7 +206,7 @@
                     <div class="explanation">
                         <span class="label">シミュレータ起動時の変化</span>
                         <ul>
-                            <li>シミュレータを起動（モノクロ化）すると，**「赤色にするだけ」の強調は周囲の黒文字と全く見分けがつかなくなります**．色覚タイプによっては，「赤」が「黒い影」のように見えてしまい，重要と気付けないリスクがあります．</li>
+                            <li>シミュレータを起動（モノクロ化）すると，<strong>「赤色にするだけ」</strong>の強調は周囲の黒文字と全く見分けがつかなくなります．色覚タイプによっては，赤が黒と同化して見え，重要であることに気付けないリスクがあります．</li>
                         </ul>
                     </div>
                 </div>
@@ -207,7 +224,7 @@
                     <div class="explanation">
                         <span class="label">シミュレータ起動時の変化</span>
                         <ul>
-                            <li>モノクロ化しても，**「太字」「境界線（枠）」「警告アイコン（⚠️）」という形（視覚情報）が残るため，色が見えなくても重要箇所であることが確実に伝わります**．</li>
+                            <li>モノクロ化しても，<strong>「太字」</strong>，<strong>「境界線（枠）」</strong>，<strong>「警告アイコン（⚠️）」</strong>という形（視覚情報）が残るため，色が見えなくても重要箇所であることが確実に伝わります．</li>
                         </ul>
                     </div>
                 </div>
@@ -219,53 +236,107 @@
             <h2 class="section-title">原則 4：ビジュアル要素の使い分け（図解・表・グラフ）</h2>
             <p class="section-desc">伝えたい情報の性質に応じて，「図解」「表」「グラフ」を使い分けることで，読み手の直感的な理解を促します．</p>
 
-            <div class="grid visual-types-grid">
-                <!-- 図解の役割 -->
-                <div class="type-card card-diagram">
-                    <div class="type-header">💡 図解（Diagram）</div>
-                    <p class="type-body-desc">物事の流れ，因果関係，つながりや構造を示すために用います．文字ばかりの解説を，矢印や囲み線を使ってビジュアル化します．</p>
-                    <!-- 図解デモ：文化祭の受付フロー -->
-                    <div class="diagram-demo">
-                        <div class="flow-step">受付でハガキ提示</div>
-                        <div class="flow-arrow">➔</div>
-                        <div class="flow-step">上履きに履き替え</div>
-                        <div class="flow-arrow">➔</div>
-                        <div class="flow-step">パンフレット受取</div>
-                    </div>
-                    <p class="type-summary"><strong>役割：** 関係性やステップの直感的な理解を促す．</p>
-                </div>
+            <h3>4-1. さまざまな「図解」とその役割</h3>
+            <p>物事の流れや因果関係を示したり，つながりや構造を示したりするために，情報の形に合わせた様々な図解を使い分けることが大切です．</p>
 
-                <!-- 表とグラフの使い分け -->
-                <div class="type-card card-table-graph">
-                    <div class="type-header">📊 表とグラフの使い分け</div>
-                    
-                    <div class="comparison-subgrid">
-                        <div class="comparison-box box-table">
-                            <h5>表（Table）の適性</h5>
-                            <p><strong>データの正確な値を表したい場合</strong>に適しています．<br>（例：各科目の点数の数値，クラス模擬店の配置詳細，時刻ごとの正確なスケジュール）．</p>
+            <div class="grid diagram-types-grid">
+                <!-- フロー図 -->
+                <div class="diagram-type-card">
+                    <div class="diag-type-tag">1. フロー図（プロセス・時系列）</div>
+                    <p class="diag-desc"><strong>役割：</strong> 物事の進行手順，時間の経過，または因果関係を示すのに適しています．</p>
+                    <div class="diagram-demo-box db-flow">
+                        <span class="flow-node">受付で招待ハガキを提示</span>
+                        <span class="flow-arrow">➔</span>
+                        <span class="flow-node">上履きに履き替える</span>
+                        <span class="flow-arrow">➔</span>
+                        <span class="flow-node">パンフレットを受け取る</span>
+                    </div>
+                </div>
+                <!-- ツリー図 -->
+                <div class="diagram-type-card">
+                    <div class="diag-type-tag">2. ツリー図（木構造・階層構造）</div>
+                    <p class="diag-desc"><strong>役割：</strong> 全体と部分の包含関係や，組織・構造の上下関係を示すのに適しています．</p>
+                    <div class="diagram-demo-box db-tree">
+                        <div class="tree-root-node">サレジオ祭実行委員会</div>
+                        <div class="tree-branches-container">
+                            <div class="tree-branch-node">└ 企画部（模擬店）</div>
+                            <div class="tree-branch-node">└ 広報部（Web制作）</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ベン図 -->
+                <div class="diagram-type-card">
+                    <div class="diag-type-tag">3. ベン図（集合・重なり）</div>
+                    <p class="diag-desc"><strong>役割：</strong> 複数の要素の共通点（重なり）や，それぞれの独自要素を整理するのに適しています．</p>
+                    <div class="diagram-demo-box db-venn">
+                        <div class="venn-circles">
+                            <div class="venn-c c-left">企画A</div>
+                            <div class="venn-c c-right">企画B</div>
+                            <div class="venn-overlap-label">共通要素</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- マトリックス図 -->
+                <div class="diagram-type-card">
+                    <div class="diag-type-tag">4. マトリックス図（分類・位置づけ）</div>
+                    <p class="diag-desc"><strong>役割：</strong> 二つの異なる評価軸で座標を交差させ，要素のポジションや分布を示すのに適しています．</p>
+                    <div class="diagram-demo-box db-matrix">
+                        <div class="matrix-grid">
+                            <div class="m-cell m-header"></div>
+                            <div class="m-cell m-header">難易度：低</div>
+                            <div class="m-cell m-header">難易度：高</div>
+                            <div class="m-cell m-label">重要度：高</div>
+                            <div class="m-cell m-content act-1">① すぐやる</div>
+                            <div class="m-cell m-content act-2">② 計画的に</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>4-2. 表とグラフの使い分け</h3>
+            <div class="card good-example-wide">
+                <div class="example-header header-good">🟢 表とグラフの特性の使い分け</div>
+                <div class="demo-content">
+                    <div class="table-graph-comparison">
+                        <!-- 表の解説とデモ -->
+                        <div class="comp-item item-table">
+                            <h4>表（Table）の特徴</h4>
+                            <p class="comp-desc"><strong>データの正確な値を表したい場合</strong>に適しています．個別の具体的な数値やテキストを網羅的に伝えられます．</p>
                             <table class="sub-demo-table">
-                                <tr><th>模擬店</th><th>売上(円)</th></tr>
-                                <tr><td>焼そば</td><td>12,400</td></tr>
-                                <tr><td>たこ焼</td><td>15,800</td></tr>
+                                <thead>
+                                    <tr><th>クラス模擬店</th><th>売上（円）</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1年A組（タピオカ）</td><td>32,400</td></tr>
+                                    <tr><td>1年B組（ベビーカステラ）</td><td>45,800</td></tr>
+                                    <tr><td>1年C組（チュロス）</td><td>28,900</td></tr>
+                                </tbody>
                             </table>
                         </div>
-                        <div class="comparison-box box-chart">
-                            <h5>グラフ（Graph）の適性</h5>
-                            <p><strong>データの全体的な傾向や割合，変化を見せたい場合</strong>に適しています．直感的な理解を促します．<br>（例：売上の推移，人気の比較）．</p>
-                            <!-- CSSで再現した簡易棒グラフ -->
+                        <!-- グラフの解説とデモ -->
+                        <div class="comp-item item-graph">
+                            <h4>グラフ（Graph）の特徴</h4>
+                            <p class="comp-desc"><strong>データの全体的な傾向や割合，変化を見せたい場合</strong>に適しています．一目で直感的な比較・理解を促すことができます．</p>
                             <div class="sub-demo-chart">
                                 <div class="chart-bar-row">
-                                    <span class="bar-name">焼そば</span>
-                                    <div class="bar-track"><div class="bar-fill" style="width: 78%;"></div></div>
+                                    <span class="bar-name">A組</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width: 70%;">32,400円</div></div>
                                 </div>
                                 <div class="chart-bar-row">
-                                    <span class="bar-name">たこ焼</span>
-                                    <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+                                    <span class="bar-name">B組</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width: 100%;">45,800円</div></div>
+                                </div>
+                                <div class="chart-bar-row">
+                                    <span class="bar-name">C組</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width: 63%;">28,900円</div></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <p class="type-summary"><strong>役割：** 正確な値は「表」，全体の傾向は「グラフ」．</p>
+                </div>
+                <div class="explanation">
+                    <span class="label">使い分けのポイント：</span>
+                    <p>スケジュールの時間や個別の模擬店の売上金額など，細かな実数値を確認させたい場合は<strong>「表」</strong>を，どの模擬店が一番人気があるかの傾向を直感的にアピールしたい場合は<strong>「グラフ」</strong>を採用します．</p>
                 </div>
             </div>
         </section>

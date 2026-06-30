@@ -81,6 +81,13 @@ h3 {
   display: flex;
   flex-direction: column;
 }
+.good-example-wide {
+  border: 2px solid #c8e6c9;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 .good-example {
   border: 2px solid #c8e6c9;
 }
@@ -278,7 +285,61 @@ h3 {
   background: linear-gradient(to right, #000000, #888888, #ffffff);
 }
 
-/* --- 2-2. 補色・類似色比較 --- */
+/* --- 2-2. 色相環の円グラデーション描画 --- */
+.color-wheel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.color-wheel-box {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+}
+/* conic-gradientを使った本物の円形色相環 */
+.color-wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(red, #ff8000, yellow, green, cyan, blue, magenta, red);
+  border: 1px solid #ccc;
+}
+/* 円の中心を白くくり抜く */
+.color-wheel-box::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 80px;
+  height: 80px;
+  background-color: #fafafa;
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+.color-wheel-explanation {
+  font-size: 13px;
+  color: #333;
+}
+.color-wheel-explanation ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.color-wheel-explanation li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.color-wheel-explanation li:last-child {
+  margin-bottom: 0;
+}
+
+/* --- 2-3. 補色・類似色比較 --- */
 .color-harmony-grid {
   grid-template-columns: 1fr 1fr;
 }
@@ -290,7 +351,7 @@ h3 {
 }
 .harmony-card h4 {
   margin: 0 0 10px 0;
-  font-size: 15px;
+  font-size: 14px;
   color: #1b3a4b;
 }
 .harmony-desc {
@@ -338,7 +399,7 @@ h3 {
   line-height: 1.6;
 }
 
-/* --- 2-3. 配色デモ --- */
+/* --- 2-4. 配色デモ --- */
 .color-bad-1 {
   background-color: #fafafa;
 }
@@ -373,8 +434,8 @@ h3 {
 }
 
 .color-good-contrast {
-  background-color: #1b3a4b; /* 暗い紺色 */
-  color: #ffffff; /* 白文字でくっきり */
+  background-color: #1b3a4b;
+  color: #ffffff;
   padding: 20px;
   text-align: center;
   font-weight: bold;
@@ -489,88 +550,188 @@ h3 {
   margin: 8px 0 0 0;
 }
 
-/* --- 原則 4：ビジュアル要素の使い分け --- */
-.visual-types-grid {
-  grid-template-columns: 1fr 1.2fr;
+/* --- 原則 4：ビジュアル要素の使い分けと図解 --- */
+.diagram-types-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
-.type-card {
+.diagram-type-card {
   border: 1px solid #e0e0e0;
   border-radius: 6px;
-  padding: 20px;
+  padding: 15px;
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
 }
-.type-header {
-  font-size: 15px;
+.diag-type-tag {
+  font-size: 13px;
   font-weight: bold;
   color: #1b3a4b;
-  margin-bottom: 10px;
   border-bottom: 2px solid #1b3a4b;
   padding-bottom: 4px;
+  margin-bottom: 8px;
 }
-.type-body-desc {
-  font-size: 12px;
-  color: #666;
+.diag-desc {
+  font-size: 11px;
+  color: #555;
   margin-top: 0;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-.type-summary {
-  font-size: 12px;
-  margin: auto 0 0 0;
-  padding-top: 15px;
-  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.5;
 }
 
-/* 図解の簡易フローデモ */
-.diagram-demo {
+.diagram-demo-box {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 12px;
+  height: 90px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #ffffff;
-  border: 1px dashed #ccc;
-  padding: 15px 10px;
-  border-radius: 4px;
+  justify-content: center;
+  box-sizing: border-box;
 }
-.flow-step {
-  font-size: 11px;
+
+/* 1. フロー図 */
+.db-flow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.flow-node {
+  font-size: 9px;
   font-weight: bold;
   background-color: #e0f2f1;
   color: #00695c;
-  padding: 6px;
+  padding: 5px;
   border-radius: 3px;
   text-align: center;
   flex: 1;
+  line-height: 1.3;
 }
 .flow-arrow {
-  font-size: 12px;
+  font-size: 10px;
   color: #00695c;
-  margin: 0 4px;
 }
 
-/* 表とグラフのサブレイアウト */
-.comparison-subgrid {
+/* 2. ツリー図 */
+.db-tree {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+.tree-root-node {
+  font-size: 10px;
+  font-weight: bold;
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 6px;
+}
+.tree-branches-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 10px;
+}
+.tree-branch-node {
+  font-size: 9px;
+  color: #0d47a1;
+}
+
+/* 3. ベン図 */
+.db-venn {
+  position: relative;
+}
+.venn-circles {
+  position: relative;
+  width: 130px;
+  height: 70px;
+}
+.venn-c {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0.65;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  top: 0;
+}
+.c-left {
+  background-color: #ff9999;
+  left: 15px;
+}
+.c-right {
+  background-color: #99ccff;
+  right: 15px;
+}
+.venn-overlap-label {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 8px;
+  color: #666;
+}
+
+/* 4. マトリックス図 */
+.db-matrix {
+  padding: 5px;
+}
+.matrix-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1fr;
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+}
+.m-cell {
+  background-color: #f5f5f5;
+  padding: 2px;
+  font-size: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+.m-header {
+  background-color: #1b3a4b;
+  color: #fff;
+  font-weight: bold;
+}
+.m-label {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+.m-content {
+  background-color: #fff;
+  border: 1px solid #eee;
+  color: #333;
+}
+
+/* 表・グラフの比較スタイル */
+.table-graph-comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 25px;
 }
-.comparison-box {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  padding: 12px;
-}
-.comparison-box h5 {
+.comp-item h4 {
   margin: 0 0 8px 0;
-  font-size: 12px;
-  color: #2c3e50;
+  font-size: 14px;
+  color: #1b3a4b;
 }
-.comparison-box p {
-  font-size: 10px;
-  color: #777;
+.comp-desc {
+  font-size: 11px;
+  color: #666;
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   line-height: 1.5;
 }
 
@@ -578,44 +739,53 @@ h3 {
 .sub-demo-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 10px;
+  font-size: 11px;
 }
 .sub-demo-table th, .sub-demo-table td {
   border: 1px solid #ddd;
-  padding: 4px 6px;
+  padding: 6px 8px;
   text-align: center;
 }
 .sub-demo-table th {
   background-color: #f1f1f1;
+  color: #333;
 }
 
 /* グラフデモ */
 .sub-demo-chart {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .chart-bar-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 .bar-name {
-  font-size: 10px;
-  width: 35px;
+  font-size: 11px;
+  width: 30px;
   text-align: right;
+  flex-shrink: 0;
 }
 .bar-track {
   background-color: #eee;
   flex-grow: 1;
-  height: 10px;
-  border-radius: 5px;
+  height: 16px;
+  border-radius: 8px;
   overflow: hidden;
 }
 .bar-fill {
   background-color: #007bff;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 9px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  box-sizing: border-box;
 }
 
 /* フッター */
