@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>情報デザイン解説：伝えるためのビジュアルデザイン原則</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="lecture.css">
 </head>
 <body>
@@ -78,6 +81,51 @@
                         <span class="label">ここがCSSの工夫！</span>
                         <ul>
                             <li><strong>視線の流れ：</strong> 最も重要なタイトルを大きく太く（<code>font-size: 20px</code> / <code>bold</code>），サブ見出しを中間（<code>15px</code> / <code>bold</code>），本文を標準（<code>13px</code> / <code>normal</code>）と整理することで，情報の優先順位が直感的にわかります．</li>
+                        </ul>
+                    </div>
+                </div>
+            <h3>1-3. ユニバーサルデザインフォント（UDフォント）の特長</h3>
+            <div class="cud-info-box font-ud-info">
+                <h4>💡 ユニバーサルデザインフォント（UDフォント）とは？</h4>
+                <p>「より多くの人にとって，見やすく，読み間違えにくい」ことをコンセプトに設計された書体です．
+                高齢者や，視力が低下している人，読み書きに障害（ディスレクシアなど）を持つ人，色覚多様性を持つ人など，誰もが正確に文字情報を認識できるように，文字の細部に工夫が施されています．</p>
+            </div>
+
+            <p>以下は，普通のフォントとUDフォントの視覚的な違いの比較です．でかい文字で細部を確認してみましょう．</p>
+
+            <div class="grid font-ud-comparison">
+                <!-- 普通のフォント -->
+                <div class="font-ud-card normal-font-side">
+                    <div class="font-ud-header">普通のゴシック体（MS ゴシックなど）</div>
+                    <div class="ud-compare-box">
+                        <span class="compare-char char-normal">ぱ</span>
+                        <span class="compare-char char-normal">ば</span>
+                        <span class="compare-char char-normal">8</span>
+                        <span class="compare-char char-normal">3</span>
+                    </div>
+                    <div class="explanation">
+                        <span class="label">普通のフォントの傾向</span>
+                        <ul>
+                            <li>半濁点（ ゚ ）と濁点（ ゙ ）が小さく，文字の線に近いため，視力が低いと「ば」と「ぱ」の区別がつきにくくなります．</li>
+                            <li>「3」と「8」などの隙間が狭く，文字がつぶれて見えやすくなります．</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- UDフォント -->
+                <div class="font-ud-card ud-font-side">
+                    <div class="font-ud-header">UDゴシック体（BIZ UDPゴシックなど）</div>
+                    <div class="ud-compare-box">
+                        <span class="compare-char char-ud">ぱ</span>
+                        <span class="compare-char char-ud">ば</span>
+                        <span class="compare-char char-ud">8</span>
+                        <span class="compare-char char-ud">3</span>
+                    </div>
+                    <div class="explanation">
+                        <span class="label">UDフォントの工夫</span>
+                        <ul>
+                            <li><strong>半濁点（ ゚ ）を大きく，濁点（ ゙ ）を離して配置</strong>しているため，「ぱ」と「ば」の誤読を防ぎます．</li>
+                            <li><strong>文字の内側の空間（ふところ）を広くあけ，線の重なりを整理</strong>しているため，文字が小さくなっても潰れず，シルエットがはっきり見えます．</li>
                         </ul>
                     </div>
                 </div>
