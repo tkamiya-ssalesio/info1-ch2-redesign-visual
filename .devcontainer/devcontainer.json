@@ -1,0 +1,23 @@
+{
+  "name": "HTML & CSS Starter with AI Mentor",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.liveserver",
+        "github.copilot",
+        "github.copilot-chat"
+      ],
+      "settings": {
+        "liveServer.settings.defaultHtml": "index.html",
+        "terminal.integrated.showOnStartup": "never"
+      }
+    }
+  },
+  "portsAttributes": {
+    "5500": {
+      "label": "Live Server",
+      "onAutoForward": "openPreview"
+    }
+  }
+}

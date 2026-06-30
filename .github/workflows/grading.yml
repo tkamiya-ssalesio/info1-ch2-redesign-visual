@@ -1,0 +1,63 @@
+name: 自動評価とフィードバック
+
+on:
+  push:
+    branches:
+      - main
+      - '*' # 任意の作業ブランチへのプッシュで起動
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. コードの取得
+      - name: コードのチェックアウト
+        uses: actions/checkout@v4
+
+      # 2. Python環境のセットアップ
+      - name: Pythonのセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # 3. 先生の管理リポジトリから評価スクリプトをダウンロード（ブラックボックス化）
+      - name: 評価スクリプトの取得
+        run: |
+          curl -sSL https://raw.githubusercontent.com/tkamiya-ssalesio/info1-grading-scripts/main/grade_redesign_visual.py -o grade_redesign_visual.py
+
+      # 4. 評価スクリプトの実行
+      - name: 課題の自動採点
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          python3 grade_redesign_visual.py
+
+      # 5. GitHub CLI を用いた Issue の作成・更新
+      - name: Issueでフィードバックを投稿
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 過去に同じタイトルのIssueが作成されているか検索
+          ISSUE_NUMBER=$(gh issue list --search "【自動評価】第6回課題" --state all --json number --jq '.[0].number')
+          
+          if [ -n "$ISSUE_NUMBER" ] && [ "$ISSUE_NUMBER" != "null" ]; then
+            # 既に存在する場合は，そのIssueをOpenにした上で内容を上書き更新
+            gh issue reopen "$ISSUE_NUMBER" || true
+            gh issue edit "$ISSUE_NUMBER" --body-file feedback.md
+            echo "評価Issueを更新しました: Issue #${ISSUE_NUMBER}"
+          else
+            # 存在しない場合は新規Issueを作成
+            gh issue create \
+              --title "【自動評価】第6回課題 ルーブリックフィードバック" \
+              --body-file feedback.md
+            echo "新しい評価Issueを作成しました．"
+          fi
+
+      # 6. ジョブサマリー（Actions画面）への出力
+      - name: Actionsサマリーへの出力
+        run: |
+          cat feedback.md >> $GITHUB_STEP_SUMMARY
